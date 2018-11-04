@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.1/p5.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.1/addons/p5.sound.min.js"></script>
+<style>
+  html, body {
+    margin: 0;
+    padding: 0;
+  }
+</style>
+<meta charset="utf-8" />
+</head>
+<body>
+<script>
+
+var sounds = []
+let isAVisible = false;
+let isSVisible = false;
+let isVVisible = false;
+let isEVisible = false;
+let isRVisible = false;
+
+let playAOneTime = false;
+let playSOneTime = false;
+let playVOneTime = false;
+let playEOneTime = false;
+let playROneTime = false;
+
+
+let characterToDraw = ' ';
+let Xloc = 0;
+let Yloc = 0;
+
+let selectedSound = 1;
+
+function preload() {
+  soundFormats('m4a');
+
+  //  setPath('/Users/savra/Desktop/sounds/')
+  let sound = loadSound ('a.m4a');
+  sounds.push(sound);
+  sound = loadSound ('e.m4a');
+  sounds.push(sound);
+  sound = loadSound ('r.m4a');
+  sounds.push(sound);
+  sound = loadSound ('s.m4a');
+  sounds.push(sound);
+  sound = loadSound ('v.m4a');
+  sounds.push(sound);
+  //sounds[0].playMode('untilDone')
+
+}
+
+function setup() {
+  createCanvas(400, 400);
+  textSize(100);
+}
+
+function draw() {
+  background(0, 20);
+  fill(255, 204, 0);
+
+  if (isAVisible) {
+
+  //sounds[0].
+  sounds[0].play();
+    text('a', 120, 200);
+  }
+
+  if (playAOneTime){
+    sounds[0].play();
+    text('A', 120, 350);
+    playAOneTime = false;
+  }
+
+  if (isSVisible) {
+    sounds[3].play();
+    text('s', 60,200);
+  }
+
+  if (playSOneTime){
+    sounds[3].play();
+    text('S', 60,100);
+    playSOneTime = false;
+  }
+
+  if (isVVisible) {
+    sounds[4].play();
+    text('v', 180, 200);
+  }
+
+  if (playVOneTime){
+    sounds[4].play();
+    text('V', 170,100);
+    playVOneTime = false;
+  }
+
+  if (isEVisible) {
+    sounds[1].play();
+    text('e', 240, 200);
+  }
+
+  if (playEOneTime){
+    sounds[1].play();
+    text('E', 240,350);
+    playEOneTime = false;
+  }
+
+  if (isRVisible) {
+    sounds[2].play();
+    text('r', 300, 200);
+  }
+
+  if (playROneTime){
+    sounds[2].play();
+    text('R', 300,100);
+    playROneTime = false;
+  }
+}
+
+function keyPressed() {
+
+
+      if (key == 'a') {
+        // sounds[0].play();
+      if (isAVisible)
+        isAVisible = false;
+        else isAVisible = true;
+/*        characterToDraw = 'a';
+        let Xloc = 120;
+        let Yloc = 200; */
+
+      }
+
+      if (key == 'A'){
+        playAOneTime = true;
+      }
+
+      if (key == 'e') {
+        if (isEVisible)
+        isEVisible = false;
+        else isEVisible = true;
+      }
+
+        if (key == 'E'){
+          playEOneTime = true;
+        }
+
+      if (key == 'r') {
+        if (isRVisible)
+        isRVisible = false;
+        else isRVisible = true;
+      }
+
+      if (key == 'R'){
+        playROneTime = true;
+      }
+
+      if (key == 's') {
+        if (isSVisible)
+        isSVisible = false;
+        else isSVisible = true;
+    }
+
+      if (key == 'S'){
+        playSOneTime = true;
+    }
+
+      if (key == 'v') {
+        if (isVVisible)
+        isVVisible = false;
+        else isVVisible = true;
+      }
+
+      if (key == 'V'){
+        playVOneTime = true;
+    }
+  }
+
+
+</script>
+</body>
+</html>
